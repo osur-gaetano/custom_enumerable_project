@@ -11,6 +11,17 @@ module Enumerable
     end
     return check
   end
+
+  def my_none?
+    self.my_each do |element|
+      unless yield(element)
+        return true
+      else
+        return false
+      end
+    end
+  end
+
 end
 
 # You will first have to define my_each
