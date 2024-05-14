@@ -22,6 +22,16 @@ module Enumerable
     end
   end
 
+  def my_select
+    selected_elements = []
+    self.my_each do |element|
+      if yield element
+        selected_elements << element
+      end
+    end
+    selected_elements
+  end
+
 end
 
 # You will first have to define my_each
