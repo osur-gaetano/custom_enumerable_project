@@ -42,6 +42,19 @@ module Enumerable
     altered_array
   end
 
+  def my_count
+    count = 0
+    if block_given?
+      self.each do |element|
+        count+=1 if yield(element)
+      end
+    else
+      count = self.size
+    end
+
+    count
+  end
+
 end
 
 # You will first have to define my_each
