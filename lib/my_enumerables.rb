@@ -42,6 +42,20 @@ module Enumerable
     altered_array
   end
 
+  def my_any?(&block)
+    check = true
+    if block_given?
+      self.each do |element|
+        unless block.call(element)
+          check = false
+        else
+          check = true
+        end
+      end
+    end
+    check
+  end
+
   def my_count
     count = 0
     if block_given?
