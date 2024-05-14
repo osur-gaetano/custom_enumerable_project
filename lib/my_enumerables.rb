@@ -32,6 +32,16 @@ module Enumerable
     selected_elements
   end
 
+  def my_map(&block)
+    altered_array= []
+    if block_given?
+      self.each do |element|
+        altered_array << block.call(element)
+      end
+    end
+    altered_array
+  end
+
 end
 
 # You will first have to define my_each
