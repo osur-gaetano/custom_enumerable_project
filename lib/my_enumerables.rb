@@ -78,6 +78,15 @@ module Enumerable
     self
   end
 
+  def my_inject(initial_value)
+    result = initial_value
+
+    for element in self
+      result = yield(result, element)
+    end
+    result
+  end
+
 
 end
 
