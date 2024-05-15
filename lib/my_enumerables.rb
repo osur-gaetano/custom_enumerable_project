@@ -35,7 +35,7 @@ module Enumerable
   def my_map(&block)
     altered_array= []
     if block_given?
-      self.each do |element|
+      self.my_each do |element|
         altered_array << block.call(element)
       end
     end
@@ -68,6 +68,16 @@ module Enumerable
 
     count
   end
+
+  def my_each_with_index
+    index=0
+    for element in self do
+      yield element, index
+      index+=1
+    end
+    self
+  end
+
 
 end
 
